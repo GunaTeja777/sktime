@@ -132,6 +132,12 @@ def test_deps_with_disjunction():
     assert set(deps("DartsXGBModel")) == {"xgboost", "u8darts>=0.29"}
 
 
+def test_deps_with_test_dependencies():
+    """Check that deps can include additional test dependencies."""
+    expected = {"greykite>=1.0.0", "prophet", "cmdstanpy<1.2", "setuptools<82"}
+    assert set(deps("GreykiteForecaster", include_test_deps=True)) == expected
+
+
 def test_sklearn_imports():
     """Check that sklearn estimators can be crafted."""
     from sktime.registry._lookup_sklearn import _all_sklearn_estimators

@@ -91,7 +91,7 @@ class GreykiteForecaster(BaseForecaster):
             "test_update_predict_predicted_index",
             "test_deepcopy_fitted_predict",
         ],
-        "tests:python_dependencies": ["prophet", "setuptools<82"],
+        "tests:python_dependencies": ["prophet", "cmdstanpy<1.2", "setuptools<82"],
     }
 
     def __init__(
