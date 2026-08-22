@@ -246,8 +246,7 @@ class GreykiteForecaster(BaseForecaster):
 
     def get_fitted_params(self):
         """Return fitted parameters."""
-        if self._forecaster is None:
-            raise ValueError("Forecaster has not been fitted yet. Call 'fit' first.")
+        self.check_is_fitted()
         return {
             "model": self._forecaster.model,
             "forecast_config": self.forecast_config,
