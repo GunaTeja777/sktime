@@ -278,13 +278,17 @@ class EnbPIForecaster(BaseForecaster):
             }
         ]
         if _check_soft_dependencies("tsbootstrap", severity="none"):
-            from tsbootstrap import BlockBootstrap
+            try:
+                from tsbootstrap import BlockBootstrap
+            except ImportError:
+                BlockBootstrap = None
 
-            params.append(
-                {
-                    "forecaster": NaiveForecaster(),
-                    "bootstrap_transformer": BlockBootstrap(),
-                }
-            )
+            if BlockBootstrap is not None:
+                params.append(
+                    {
+                        "forecaster": NaiveForecaster(),
+                        "bootstrap_transformer": BlockBootstrap(),
+                    }
+                )
 
         return params
