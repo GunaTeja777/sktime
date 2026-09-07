@@ -96,3 +96,10 @@ def test_get_lowest_compatible_python_version(
     result = _get_lowest_compatible_python_version(_MockEstimator)
 
     assert result == expected
+
+
+def test_hypertreenet_ar_forecaster_python_version_tag():
+    """HyperTreeNetARForecaster should select a Python 3.11+ runner in CI."""
+    from sktime.forecasting.hypertrees import HyperTreeNetARForecaster
+
+    assert HyperTreeNetARForecaster.get_class_tag("python_version") == ">=3.11"

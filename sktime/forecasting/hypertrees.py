@@ -75,6 +75,7 @@ class HyperTreeNetARForecaster(BaseForecaster):
         # --------------
         "authors": ["StatMixedML", "kashif", "aminehd"],
         "maintainers": ["aminehd"],
+        "python_version": ">=3.11",
         "python_dependencies": ["hypertrees-forecasting>=0.2"],
         # estimator type
         # --------------
